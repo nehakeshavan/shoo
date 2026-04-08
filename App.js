@@ -2,9 +2,9 @@ import { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../firebaseConfig";
+import { app } from "./firebaseConfig";
 
-export default function HomeScreen() {
+export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,7 +14,7 @@ export default function HomeScreen() {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log("User created:", user.user.email);
-    } catch (error: any) {
+    } catch (error) {
       console.log("Error:", error.message);
     }
   };
